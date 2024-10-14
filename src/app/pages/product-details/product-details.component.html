@@ -1,0 +1,33 @@
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-[1280px] p-4 mx-auto">
+  <div class="w-full aspect-square">
+    <img [src]="product?.img" class="object-cover w-full" alt="">
+  </div>
+  <div class="flex flex-col gap-4">
+    <span class="text-2xl font-bold">{{product?.name}}</span>
+    <span class="text-lg font-semibold">{{product?.price | number}}/<span
+        class="text-base font-medium">{{product?.unit}}</span></span>
+    <div [innerHTML]="product?.description"></div>
+
+    <div class="flex gap-4 items-center">
+      <div class="flex">
+        <button class="h-8 w-8 text-2xl border rounded-s-lg relative" (click)="reduce()"><span
+            class="relative -top-1">-</span></button>
+        <input type="number" [ngModel]="quantity" (ngModelChange)="onChangeQuantity($event)" name="quantity"
+          autocomplete="bday"
+          class="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none h-8 w-10 border-y outline-none text-center">
+        <button class="h-8 w-8 text-2xl border rounded-e-lg relative" (click)="increase()"><span
+            class="relative -top-1">+</span></button>
+      </div>
+
+      <svg-icon class="w-5 h-5" svgClass="w-5 h-5" src="assets/icons/heart-svgrepo-com.svg" />
+
+      <button
+        class="h-8 px-5 border rounded-lg bg-green-500 text-white hover:bg-green-600 font-semibold transition-all">Thêm
+        vào giỏ hàng</button>
+    </div>
+
+    <span>Thành tiền: <span class="text-lg font-semibold">{{quantity * (product?.price || 0) | number }}
+        VND</span></span>
+
+  </div>
+</div>

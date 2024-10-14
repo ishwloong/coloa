@@ -1,0 +1,6 @@
+<div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 max-w-[1280px] px-4 py-3 mx-auto">
+  <div *ngFor="let image of images" class="mb-4">
+    <img [src]="image" alt="Image"
+      class="w-full h-auto object-cover rounded-lg shadow-md hover:scale-150 hover:shadow-2xl transition-all cursor-pointer z-30">
+  </div>
+</div>

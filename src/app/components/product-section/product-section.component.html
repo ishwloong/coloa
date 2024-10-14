@@ -1,0 +1,18 @@
+<div class="w-full max-w-[1280px] p-4 mx-auto" id="product">
+  <span class="text-xl font-bold">Đặc sản COLOA</span>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+    <div *ngFor="let product of products" class="w-full flex flex-col gap-3 shadow-md group cursor-pointer"
+      [routerLink]="['/product', product.id]">
+      <div class="overflow-hidden">
+        <img class="aspect-square object-cover group-hover:scale-110 transition-all" [src]="product.img" alt="">
+      </div>
+      <div class="p-4 flex flex-col gap-2">
+        <span class="text-lg text-green-600 group-hover:text-green-500 font-bold">{{product.name}}</span>
+        <div>{{product.price}}</div>
+        <div class="line-clamp-2">{{product.description}}</div>
+        <span class="text-green-600 group-hover:text-green-500">Xem thêm...</span>
+      </div>
+    </div>
+  </div>
+</div>
